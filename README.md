@@ -2,6 +2,10 @@
 
 A modern, accessible sidebar navigation component with advanced keyboard navigation and search functionality. Built with vanilla JavaScript, HTML, and CSS.
 
+## Demo
+
+View the live demo: [Sidebar Navigation Demo](https://markmready.github.io/cursor-sidebar/)
+
 ## Features
 
 - 🎯 **Hierarchical Navigation**: Multi-level navigation structure with expandable categories
