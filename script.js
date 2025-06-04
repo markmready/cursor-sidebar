@@ -165,82 +165,69 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // From category header
                 if (currentElement.classList.contains('category-header')) {
-                    const currentCategory = currentElement.closest('.l1-category, .l2-category');
+                    const currentCategory = currentElement.closest('.l1-category');
                     
-                    // If this is an L2 category, try to find previous elements
-                    if (currentCategory.classList.contains('l2-category')) {
-                        let prevElement = currentCategory.previousElementSibling;
-                        while (prevElement) {
-                            // First try to find L2 links
-                            if (prevElement.classList.contains('l2-link')) {
-                                prevElement.focus();
-                                return;
-                            }
-                            // Then try L2 categories
-                            if (prevElement.classList.contains('l2-category')) {
-                                if (prevElement.classList.contains('active')) {
-                                    // If active, try to focus last item in the category
-                                    const items = Array.from(prevElement.querySelectorAll('.category-content .l3-link'));
-                                    if (items.length > 0) {
-                                        items[items.length - 1].focus();
-                                        return;
-                                    }
-                                }
-                                // If not active or no items, focus the header
-                                const prevHeader = prevElement.querySelector('.category-header');
-                                if (prevHeader) {
-                                    prevHeader.focus();
-                                    return;
-                                }
-                            }
-                            prevElement = prevElement.previousElementSibling;
-                        }
-                        
-                        // If no previous siblings found, go to L1 header
-                        const parentL1 = currentCategory.closest('.l1-category');
-                        const l1Header = parentL1.querySelector(':scope > .category-header');
-                        if (l1Header) {
-                            l1Header.focus();
-                            return;
-                        }
-                    }
-                    
-                    // For L1 categories
-                    if (currentCategory.classList.contains('l1-category')) {
-                        // If this is the first category, go to Home link
-                        if (!currentCategory.previousElementSibling?.classList.contains('l1-category')) {
-                            const homeLink = document.querySelector('.l1-link');
-                            if (homeLink) {
-                                homeLink.focus();
-                                return;
-                            }
-                        }
-                        
-                        // Otherwise go to previous category header
-                        let prevCategory = currentCategory.previousElementSibling;
-                        while (prevCategory) {
-                            if (prevCategory.classList.contains('l1-category')) {
+                    // If this is the first category after divider, try to go to divider's previous sibling
+                    if (divider && currentCategory.previousElementSibling === divider) {
+                        const prevSibling = divider.previousElementSibling;
+                        if (prevSibling) {
+                            if (prevSibling.classList.contains('l1-category')) {
                                 // If previous category is active, try its last item
-                                if (prevCategory.classList.contains('active')) {
-                                    const items = Array.from(prevCategory.querySelectorAll('.category-content > .sidebar-item'));
+                                if (prevSibling.classList.contains('active')) {
+                                    const items = Array.from(prevSibling.querySelectorAll('.category-content .sidebar-item'));
                                     for (let i = items.length - 1; i >= 0; i--) {
                                         const item = items[i];
                                         if (item.tagName === 'A' || item.classList.contains('category-header')) {
                                             item.focus();
+                                            item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
                                             return;
                                         }
                                     }
                                 }
-                                
                                 // Otherwise focus its header
-                                const prevHeader = prevCategory.querySelector('.category-header');
+                                const prevHeader = prevSibling.querySelector('.category-header');
                                 if (prevHeader) {
                                     prevHeader.focus();
+                                    prevHeader.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
                                     return;
                                 }
                             }
-                            prevCategory = prevCategory.previousElementSibling;
                         }
+                    }
+                    
+                    // Rest of the category header navigation...
+                    let prevElement = currentCategory.previousElementSibling;
+                    while (prevElement) {
+                        if (prevElement.classList.contains('l1-category')) {
+                            // If previous category is active, try its last item
+                            if (prevElement.classList.contains('active')) {
+                                const items = Array.from(prevElement.querySelectorAll('.category-content .sidebar-item'));
+                                for (let i = items.length - 1; i >= 0; i--) {
+                                    const item = items[i];
+                                    if (item.tagName === 'A' || item.classList.contains('category-header')) {
+                                        item.focus();
+                                        item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                                        return;
+                                    }
+                                }
+                            }
+                            // Otherwise focus its header
+                            const prevHeader = prevElement.querySelector('.category-header');
+                            if (prevHeader) {
+                                prevHeader.focus();
+                                prevHeader.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                                return;
+                            }
+                        }
+                        prevElement = prevElement.previousElementSibling;
+                    }
+                    
+                    // If we get here and this is the first category, go to Home
+                    const homeLink = document.querySelector('.l1-link');
+                    if (homeLink) {
+                        homeLink.focus();
+                        homeLink.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                        return;
                     }
                 }
                 
