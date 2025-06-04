@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Navigation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="masthead">
+        <img src="icons/Logos/LOGO MASTER.svg" alt="RWF Logo" class="logo">
+    </header>
+    <div class="content-wrapper">
+        <nav class="sidebar">
+            <!-- Search Filter -->
+            <div class="sidebar-search" role="search">
+                <div class="search-container">
+                    <img src="icons/Search.svg" alt="" class="search-icon icon-default">
+                    <img src="icons/Search-fill.svg" alt="" class="search-icon icon-fill">
+                    <input 
+                        type="text" 
+                        id="sidebarFilter" 
+                        placeholder="Search..." 
+                        aria-label="Search navigation"
+                        aria-controls="sidebar-nav"
+                        role="searchbox"
+                    >
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="sidebar-content" id="sidebar-nav" role="navigation">
+                <!-- Home -->
+                <a href="#" class="sidebar-item l1-link" role="menuitem" tabindex="0">
+                    <img src="icons/Home.svg" alt="" class="category-icon icon-default">
+                    <img src="icons/Home-fill.svg" alt="" class="category-icon icon-fill">
+                    Home
+                </a>
+
+                <!-- Rosters -->
+                <div class="sidebar-item l1-category">
+                    <button class="category-header" tabindex="0" role="button" aria-expanded="false">
+                        <span>
+                            <img src="icons/Rosters.svg" alt="" class="category-icon icon-default">
+                            <img src="icons/Rosters-fill.svg" alt="" class="category-icon icon-fill">
+                            Rosters
+                        </span>
+                        <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                    </button>
+                    <div class="category-content">
+                        <a href="#" class="sidebar-item l2-link">Rosters</a>
+                        <a href="#" class="sidebar-item l2-link">Roster day view</a>
+                        <a href="#" class="sidebar-item l2-link">Roster pattern designer</a>
+                    </div>
+                </div>
+
+                <!-- Timesheets -->
+                <div class="sidebar-item l1-category">
+                    <button class="category-header" tabindex="0" role="button" aria-expanded="false">
+                        <span>
+                            <img src="icons/Timesheets.svg" alt="" class="category-icon icon-default">
+                            <img src="icons/Timesheets-fill.svg" alt="" class="category-icon icon-fill">
+                            Timesheets
+                        </span>
+                        <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                    </button>
+                    <div class="category-content">
+                        <a href="#" class="sidebar-item l2-link">Timesheets</a>
+                        <a href="#" class="sidebar-item l2-link">Timesheet day view</a>
+                        <a href="#" class="sidebar-item l2-link">Timesheet summary</a>
+                    </div>
+                </div>
+
+                <!-- Payroll -->
+                <div class="sidebar-item l1-category">
+                    <button class="category-header" tabindex="0" role="button" aria-expanded="false">
+                        <span>
+                            <img src="icons/Payroll.svg" alt="" class="category-icon icon-default">
+                            <img src="icons/Payroll-fill.svg" alt="" class="category-icon icon-fill">
+                            Payroll
+                        </span>
+                        <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                    </button>
+                    <div class="category-content">
+                        <a href="#" class="sidebar-item l2-link">Payroll processes</a>
+                        <a href="#" class="sidebar-item l2-link">Payslips</a>
+                        <a href="#" class="sidebar-item l2-link">Job mgmt.</a>
+                        <a href="#" class="sidebar-item l2-link">Earnings history</a>
+                        <a href="#" class="sidebar-item l2-link">Payment requests</a>
+                        <a href="#" class="sidebar-item l2-link">Allowances</a>
+                        <a href="#" class="sidebar-item l2-link">Payroll tax calculator</a>
+                        
+                        <!-- Expenses Subcategory -->
+                        <div class="sidebar-item l2-category">
+                            <div class="category-header">
+                                <span>Expenses</span>
+                                <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                            </div>
+                            <div class="category-content">
+                                <a href="#" class="sidebar-item l3-link">General claim</a>
+                                <a href="#" class="sidebar-item l3-link">Mileage claim</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Staff -->
+                <div class="sidebar-item l1-category">
+                    <div class="category-header">
+                        <span>
+                            <img src="icons/Staff.svg" alt="" class="category-icon icon-default">
+                            <img src="icons/Staff-fill.svg" alt="" class="category-icon icon-fill">
+                            Staff
+                        </span>
+                        <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                    </div>
+                    <div class="category-content">
+                        <a href="#" class="sidebar-item l2-link">Staff details</a>
+                        <a href="#" class="sidebar-item l2-link">Staff checked in</a>
+                        <a href="#" class="sidebar-item l2-link">Contracts</a>
+                        <a href="#" class="sidebar-item l2-link">Talent <img src="icons/Outlink.svg" alt="" class="outlink-icon"></a>
+
+                        <!-- Leave as L2 category -->
+                        <div class="sidebar-item l2-category">
+                            <div class="category-header">
+                                <span>Leave</span>
+                                <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                            </div>
+                            <div class="category-content">
+                                <a href="#" class="sidebar-item l3-link">Leave</a>
+                                <a href="#" class="sidebar-item l3-link">Leave calendar</a>
+                                <a href="#" class="sidebar-item l3-link">Leave balances</a>
+                            </div>
+                        </div>
+
+                        <!-- Comms as L2 category -->
+                        <div class="sidebar-item l2-category">
+                            <div class="category-header">
+                                <span>Comms</span>
+                                <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                            </div>
+                            <div class="category-content">
+                                <a href="#" class="sidebar-item l3-link">Staff messaging</a>
+                                <a href="#" class="sidebar-item l3-link">Scheduled notifications</a>
+                                <a href="#" class="sidebar-item l3-link">Email notifications</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Org -->
+                <div class="sidebar-item l1-category">
+                    <div class="category-header">
+                        <span>
+                            <img src="icons/Org.svg" alt="" class="category-icon icon-default">
+                            <img src="icons/Org-fill.svg" alt="" class="category-icon icon-fill">
+                            Org
+                        </span>
+                        <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                    </div>
+                    <div class="category-content">
+                        <a href="#" class="sidebar-item l2-link">Recruitment <img src="icons/Outlink.svg" alt="" class="outlink-icon"></a>
+                        <a href="#" class="sidebar-item l2-link">Org chart</a>
+                        <a href="#" class="sidebar-item l2-link">Org structure</a>
+                        <a href="#" class="sidebar-item l2-link">Exit surveys</a>
+                        <a href="#" class="sidebar-item l2-link">Meetings</a>
+                        <a href="#" class="sidebar-item l2-link">Position mgmt</a>
+                        <a href="#" class="sidebar-item l2-link">Asset mgmt</a>
+
+                        <!-- Training as L2 category -->
+                        <div class="sidebar-item l2-category">
+                            <div class="category-header">
+                                <span>Training</span>
+                                <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                            </div>
+                            <div class="category-content">
+                                <a href="#" class="sidebar-item l3-link">Training</a>
+                                <a href="#" class="sidebar-item l3-link">Course Mgmt</a>
+                                <a href="#" class="sidebar-item l3-link">Map Mgmt</a>
+                                <a href="#" class="sidebar-item l3-link">Certification</a>
+                                <a href="#" class="sidebar-item l3-link">Learning <img src="icons/Outlink.svg" alt="" class="outlink-icon"></a>
+                            </div>
+                        </div>
+
+                        <!-- Performance as L2 category -->
+                        <div class="sidebar-item l2-category">
+                            <div class="category-header">
+                                <span>Performance</span>
+                                <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                            </div>
+                            <div class="category-content">
+                                <a href="#" class="sidebar-item l3-link">Complaints & Compliments</a>
+                                <a href="#" class="sidebar-item l3-link">Performance mgmt</a>
+                                <a href="#" class="sidebar-item l3-link">Perf. review</a>
+                                <a href="#" class="sidebar-item l3-link">Perf. review templates</a>
+                                <a href="#" class="sidebar-item l3-link">Perf. notes</a>
+                                <a href="#" class="sidebar-item l3-link">Talent <img src="icons/Outlink.svg" alt="" class="outlink-icon"></a>
+                            </div>
+                        </div>
+
+                        <!-- Health & Safety as L2 category -->
+                        <div class="sidebar-item l2-category">
+                            <div class="category-header">
+                                <span>Health & Safety</span>
+                                <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                            </div>
+                            <div class="category-content">
+                                <a href="#" class="sidebar-item l3-link">Accident tracking</a>
+                                <a href="#" class="sidebar-item l3-link">Hazard risk register</a>
+                                <a href="#" class="sidebar-item l3-link">Meeting H&S</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Forms -->
+                <div class="sidebar-item l1-category">
+                    <div class="category-header">
+                        <span>
+                            <img src="icons/Forms.svg" alt="" class="category-icon icon-default">
+                            <img src="icons/Forms-fill.svg" alt="" class="category-icon icon-fill">
+                            Forms
+                        </span>
+                        <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                    </div>
+                    <div class="category-content">
+                        <a href="#" class="sidebar-item l2-link">View forms</a>
+                        <a href="#" class="sidebar-item l2-link">Edit forms / checklists</a>
+                        <a href="#" class="sidebar-item l2-link">To-do lists</a>
+                    </div>
+                </div>
+
+                <!-- Analytics -->
+                <div class="sidebar-item l1-category">
+                    <div class="category-header">
+                        <span>
+                            <img src="icons/Analytics.svg" alt="" class="category-icon icon-default">
+                            <img src="icons/Analytics-fill.svg" alt="" class="category-icon icon-fill">
+                            Analytics
+                        </span>
+                        <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                    </div>
+                    <div class="category-content">
+                        <a href="#" class="sidebar-item l2-link">Report viewer</a>
+                        <a href="#" class="sidebar-item l2-link">Report writer <img src="icons/Outlink.svg" alt="" class="outlink-icon"></a>
+                    </div>
+                </div>
+
+                <!-- Integrations -->
+                <div class="sidebar-item l1-category">
+                    <div class="category-header">
+                        <span>
+                            <img src="icons/Integrations.svg" alt="" class="category-icon icon-default">
+                            <img src="icons/Integrations-fill.svg" alt="" class="category-icon icon-fill">
+                            Integrations
+                        </span>
+                        <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                    </div>
+                    <div class="category-content">
+                        <a href="#" class="sidebar-item l2-link">Integrations hub</a>
+                        <a href="#" class="sidebar-item l2-link">Eroads</a>
+                    </div>
+                </div>
+
+                <!-- Settings -->
+                <div class="sidebar-item l1-category">
+                    <div class="category-header">
+                        <span>
+                            <img src="icons/Settings.svg" alt="" class="category-icon icon-default">
+                            <img src="icons/Settings-fill.svg" alt="" class="category-icon icon-fill">
+                            Settings
+                        </span>
+                        <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                    </div>
+                    <div class="category-content">
+                        <a href="#" class="sidebar-item l2-link">General settings</a>
+                        <a href="#" class="sidebar-item l2-link">Form settings</a>
+
+                        <!-- Staff Settings Subcategory -->
+                        <div class="sidebar-item l2-category">
+                            <div class="category-header">
+                                <span>Staff settings</span>
+                                <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                            </div>
+                            <div class="category-content">
+                                <a href="#" class="sidebar-item l3-link">Location owners</a>
+                                <a href="#" class="sidebar-item l3-link">User security</a>
+                                <a href="#" class="sidebar-item l3-link">Work types</a>
+                                <a href="#" class="sidebar-item l3-link">Leave ledger</a>
+                                <a href="#" class="sidebar-item l3-link">Termination types</a>
+                            </div>
+                        </div>
+
+                        <!-- Pay Settings Subcategory -->
+                        <div class="sidebar-item l2-category">
+                            <div class="category-header">
+                                <span>Pay settings</span>
+                                <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                            </div>
+                            <div class="category-content">
+                                <a href="#" class="sidebar-item l3-link">Banding table</a>
+                                <a href="#" class="sidebar-item l3-link">Finance GL / Cost codes</a>
+                                <a href="#" class="sidebar-item l3-link">Pay element group</a>
+                                <a href="#" class="sidebar-item l3-link">Exchange rates</a>
+                                <a href="#" class="sidebar-item l3-link">Pay table rates</a>
+                                <a href="#" class="sidebar-item l3-link">Payment / deduction templates</a>
+                                <a href="#" class="sidebar-item l3-link">Expense claim categories</a>
+                                <a href="#" class="sidebar-item l3-link">Expense claim types / settings</a>
+                                <a href="#" class="sidebar-item l3-link">Per diem rates</a>
+                                <a href="#" class="sidebar-item l3-link">Pay element group formulas</a>
+                                <a href="#" class="sidebar-item l3-link">Rounding rules</a>
+                                <a href="#" class="sidebar-item l3-link">STP2 mappings</a>
+                                <a href="#" class="sidebar-item l3-link">Super funds</a>
+                                <a href="#" class="sidebar-item l3-link">Shift loadings</a>
+                                <a href="#" class="sidebar-item l3-link">Global strings</a>
+                                <a href="#" class="sidebar-item l3-link">Payment / deductions</a>
+                            </div>
+                        </div>
+
+                        <!-- Time Settings Subcategory -->
+                        <div class="sidebar-item l2-category">
+                            <div class="category-header">
+                                <span>Time settings</span>
+                                <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                            </div>
+                            <div class="category-content">
+                                <a href="#" class="sidebar-item l3-link">Public holidays</a>
+                                <a href="#" class="sidebar-item l3-link">Timeclocks</a>
+                            </div>
+                        </div>
+
+                        <!-- Logs Subcategory -->
+                        <div class="sidebar-item l2-category">
+                            <div class="category-header">
+                                <span>Logs</span>
+                                <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                            </div>
+                            <div class="category-content">
+                                <a href="#" class="sidebar-item l3-link">Sign-in logs</a>
+                                <a href="#" class="sidebar-item l3-link">Email logs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RSU Tools -->
+                <div class="sidebar-item l1-category">
+                    <div class="category-header">
+                        <span>
+                            <img src="icons/RSU.svg" alt="" class="category-icon icon-default">
+                            <img src="icons/RSU-fill.svg" alt="" class="category-icon icon-fill">
+                            RSU Tools
+                        </span>
+                        <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                    </div>
+                    <div class="category-content">
+                        <a href="#" class="sidebar-item l2-link">Timesheet columns</a>
+                        <a href="#" class="sidebar-item l2-link">Announcements</a>
+                        <a href="#" class="sidebar-item l2-link">ReadyTech billing</a>
+                        <a href="#" class="sidebar-item l2-link">Packages admin</a>
+                        <a href="#" class="sidebar-item l2-link">Error logs</a>
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div class="sidebar-divider"></div>
+
+                <!-- Favourites-->
+                <div class="sidebar-item l1-category">
+                    <div class="category-header">
+                        <span>
+                            <img src="icons/Star.svg" alt="" class="category-icon icon-default">
+                            <img src="icons/Star-fill.svg" alt="" class="category-icon icon-fill">
+                            Favourites
+                        </span>
+                        <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                    </div>
+                    <div class="category-content">
+                        <a href="#" class="sidebar-item l2-link">Favourite item 1</a>
+                        <a href="#" class="sidebar-item l2-link">Favourite item 2</a>
+                        <a href="#" class="sidebar-item l2-link">Favourite item 3</a>
+                        <a href="#" class="sidebar-item l2-link">Favourite item 4</a>
+                        <a href="#" class="sidebar-item l2-link">Favourite item 5</a>
+                    </div>
+                </div>
+
+                <!-- Recents-->
+                <div class="sidebar-item l1-category">
+                    <div class="category-header">
+                        <span>
+                            <img src="icons/Recent.svg" alt="" class="category-icon icon-default">
+                            <img src="icons/Recent-fill.svg" alt="" class="category-icon icon-fill">
+                            Recents
+                        </span>
+                        <img src="icons/Chevron-down.svg" alt="" class="chevron">
+                    </div>
+                    <div class="category-content">
+                        <a href="#" class="sidebar-item l2-link">Recent item 1</a>
+                        <a href="#" class="sidebar-item l2-link">Recent item 2</a>
+                        <a href="#" class="sidebar-item l2-link">Recent item 3</a>
+                        <a href="#" class="sidebar-item l2-link">Recent item 4</a>
+                        <a href="#" class="sidebar-item l2-link">Recent item 5</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Toggle Control -->
+            <button class="sidebar-toggle">
+                <img src="icons/Nav.svg" alt="" class="toggle-icon icon-default">
+                <img src="icons/Nav-fill.svg" alt="" class="toggle-icon icon-fill">
+            </button>
+        </nav>
+        <div class="main-content">
+            <div class="info-text">
+                <h1>RWF Sidebar Prototype</h1>
+                <p>A fully functional, production-ready sidebar navigation system built with pure <span class="highlight">HTML</span>, <span class="highlight">CSS</span>, and vanilla <span class="highlight">JavaScript</span>.</p>
+                <p>Features include:</p>
+                <p>• Minimizable sidebar with smooth transitions<br>
+                   • Smart search with keyboard navigation<br>
+                   • Hierarchical L1/L2/L3 navigation<br>
+                   • Proper accessibility implementation<br>
+                   • Modern hover/focus states<br>
+                   • Favouriting control (TBC!) <br>
+                   • Clean, professional styling</p>
+
+                <p>Built in <span class="highlight">~5 hours</span> using <span class="highlight">Cursor AI</span>. Ready for dev team implementation. 🚀</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

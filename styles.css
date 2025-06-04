@@ -1,0 +1,490 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Masthead */
+.masthead {
+    height: 56px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.masthead .logo {
+    height: 24px;
+    width: auto;
+}
+
+/* Content wrapper */
+.content-wrapper {
+    display: flex;
+    flex: 1;
+}
+
+/* Sidebar Container */
+.sidebar {
+    width: 250px;
+    height: calc(100vh - 56px);
+    background-color: white;
+    font-size: 14px;
+    transition: width 0.2s ease-out;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar content wrapper */
+.sidebar-content {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+/* Minimized sidebar */
+.sidebar.minimized {
+    width: 50px;
+    overflow: hidden;
+}
+
+/* Hide everything except L1 icons and divider in minimized state */
+.sidebar.minimized .sidebar-search input,
+.sidebar.minimized .category-content,
+.sidebar.minimized .chevron,
+.sidebar.minimized .l2-category,
+.sidebar.minimized .l2-link,
+.sidebar.minimized .l3-link {
+    display: none;
+}
+
+/* Keep search container visible but centered in minimized state */
+.sidebar.minimized .sidebar-search {
+    padding: 20px 0 10px;
+}
+
+.sidebar.minimized .search-container {
+    justify-content: center;
+}
+
+/* Ensure search icon is visible and centered in minimized state */
+.sidebar.minimized .search-icon {
+    margin: 0;
+    margin-left: -2px;
+}
+
+/* Keep divider visible but adjust width */
+.sidebar.minimized .sidebar-divider {
+    margin: 10px 15px;
+}
+
+/* Center L1 items in minimized state */
+.sidebar.minimized .l1-category > .category-header,
+.sidebar.minimized .l1-link {
+    padding: 12px 0;
+    justify-content: center;
+}
+
+/* Hide text but keep icons in minimized state */
+.sidebar.minimized .category-header span,
+.sidebar.minimized .l1-link {
+    font-size: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ensure icons are centered without margins */
+.sidebar.minimized .category-icon,
+.sidebar.minimized .toggle-icon {
+    margin: 0;
+}
+
+/* Toggle Control */
+.sidebar-toggle {
+    margin: 0 0 20px 12px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-toggle:hover {
+    background-color: #f5f5f5;
+}
+
+.toggle-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.toggle-icon.icon-fill {
+    display: none;
+}
+
+.sidebar-toggle:hover .icon-default,
+.sidebar.minimized .sidebar-toggle .icon-default {
+    display: none;
+}
+
+.sidebar-toggle:hover .icon-fill,
+.sidebar.minimized .sidebar-toggle .icon-fill {
+    display: block;
+}
+
+/* Search Filter Styles */
+.sidebar-search {
+    padding: 10px 20px 5px 20px;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: text;
+}
+
+.search-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: -2px;
+}
+
+.search-icon.icon-fill {
+    display: none;
+}
+
+.search-container:hover .icon-default,
+.search-container:has(input:focus) .icon-default,
+.search-container.filtered .icon-default {
+    display: none;
+}
+
+.search-container:hover .icon-fill,
+.search-container:has(input:focus) .icon-fill,
+.search-container.filtered .icon-fill {
+    display: block;
+}
+
+#sidebarFilter {
+    width: 100%;
+    padding: 8px 0;
+    border: none;
+    border-bottom: 1px solid transparent;
+    border-radius: 0;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+}
+
+#sidebarFilter::placeholder {
+    color: transparent;
+    transition: color 0.2s ease;
+}
+
+/* Show placeholder and border on hover and focus */
+.search-container:hover #sidebarFilter::placeholder,
+#sidebarFilter:focus::placeholder {
+    color: #999;
+}
+
+.search-container:hover #sidebarFilter,
+#sidebarFilter:focus {
+    outline: none;
+    border-bottom-color: #999;
+}
+
+/* Also show placeholder and border when filtered */
+#sidebarFilter.filtered::placeholder {
+    color: #999;
+}
+
+#sidebarFilter.filtered {
+    border-bottom-color: #999;
+}
+
+/* Divider */
+.sidebar-divider {
+    border-top: 1px solid #ddd;
+    margin: 10px 20px;
+}
+
+/* Hide items that don't match the filter */
+.sidebar-item.hidden {
+    display: none;
+}
+
+/* Common Sidebar Item Styles */
+.sidebar-item {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Links Hover Effect */
+a.sidebar-item:hover,
+.category-header:hover {
+    background-color: #f5f5f5;
+}
+
+/* Level Specific Indentation */
+.l1-link {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 400;
+    background-color: white;
+}
+
+.l1-link:hover {
+    background-color: #f5f5f5;
+}
+
+.l2-link {
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 300;
+}
+
+.l3-link {
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 300;
+}
+
+/* L2 category should align with L1 */
+.l2-category {
+    padding-left: 20px;
+}
+
+/* Category Styles */
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: inherit;
+    font: inherit;
+    cursor: pointer;
+    text-align: left;
+}
+
+/* L1 Category Header Styles */
+.l1-category > .category-header {
+    padding: 12px 20px;
+    background-color: white;
+}
+
+.l1-category > .category-header:hover {
+    background-color: #f5f5f5;
+}
+
+.l1-category > .category-header span:first-child {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 400;
+}
+
+/* L2 Category Header Styles */
+.l2-category > .category-header {
+    padding: 10px 20px;
+    color: #444;
+}
+
+.l2-category > .category-header:hover {
+    background-color: #f5f5f5;
+}
+
+.l2-category > .category-header span:first-child {
+    display: inline-block;
+    font-weight: 500;
+}
+
+.l2-category > .category-header .chevron {
+    width: 14px;
+    height: 14px;
+}
+
+/* Category Icon Styles - L1 only */
+.category-icon {
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Icon states - only for L1 categories */
+.icon-fill {
+    display: none;
+}
+
+.l1-category .sidebar-item:hover .icon-default,
+.l1-category.active > .category-header .icon-default {
+    display: none;
+}
+
+.l1-category .sidebar-item:hover .icon-fill,
+.l1-category.active > .category-header .icon-fill {
+    display: inline-flex;
+}
+
+/* Category Content */
+.category-content {
+    display: none;
+}
+
+.l1-category.active > .category-content,
+.l2-category.active > .category-content {
+    display: block;
+}
+
+/* Chevron styles */
+.chevron {
+    width: 16px;
+    height: 16px;
+}
+
+/* Active States */
+.l1-category.active > .category-header .chevron,
+.l2-category.active > .category-header .chevron {
+    transform: rotate(180deg);
+}
+
+/* Category Styles */
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category-header span:first-child {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.category-icon {
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Icon states */
+.icon-fill {
+    display: none;
+}
+
+.sidebar-item:hover .icon-default,
+.l1-category.active > .category-header .icon-default {
+    display: none;
+}
+
+.sidebar-item:hover .icon-fill,
+.l1-category.active > .category-header .icon-fill {
+    display: inline-flex;
+}
+
+/* Outlink icon styles */
+.outlink-icon {
+    width: 14px;
+    height: 14px;
+    margin-left: 2px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+}
+
+/* Search status */
+.search-status {
+    font-size: 12px;
+    color: #666;
+    padding: 4px 20px;
+    min-height: 20px;
+}
+
+/* Focus styles */
+.sidebar-item:focus,
+.category-header:focus {
+    outline: 2px solid #4A90E2;
+    outline-offset: -2px;
+    background-color: #f5f5f5;
+}
+
+/* Remove focus outline when sidebar is minimized */
+.sidebar.minimized .sidebar-item:focus,
+.sidebar.minimized .category-header:focus {
+    outline-width: 1px;
+}
+
+/* Info Text Styles */
+.info-text {
+    padding: 40px;
+    font-family: 'Poppins', sans-serif;
+    color: #666;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.info-text h1 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: #333;
+}
+
+.info-text p {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.info-text .highlight {
+    color: #4A90E2;
+    font-weight: 500;
+}
+
+/* Adjust info text position when sidebar is minimized */
+.sidebar.minimized + .info-text {
+    left: calc(50px + 5%);
+}
+
+/* Remove the margin-top adjustments that were compensating for fixed masthead */
+.sidebar,
+.info-text {
+    margin-top: 0;
+}
+
+/* Main content area */
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Adjust margin when sidebar is minimized */
+.sidebar.minimized + .main-content {
+    margin-left: 50px;
+} 
