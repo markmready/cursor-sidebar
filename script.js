@@ -461,18 +461,13 @@ document.addEventListener('DOMContentLoaded', () => {
             favoriteItem.href = item.href;
             favoriteItem.className = 'sidebar-item l2-link';
             
-            // Create star icon
-            const starIcon = document.createElement('span');
-            starIcon.className = 'star-icon';
-            
             // Copy the text content
             const textContent = item.textContent.trim();
             
             // Check if original item has an outlink icon
             const hasOutlink = item.querySelector('.outlink-icon');
             
-            // Construct the favorite item
-            favoriteItem.appendChild(starIcon);
+            // Add the text content
             favoriteItem.appendChild(document.createTextNode(textContent));
             
             if (hasOutlink) {
