@@ -337,14 +337,9 @@ a.sidebar-item:hover,
 }
 
 /* Special handling for favorites section */
-.l1-category:has(> .category-header:contains("Favourites")) .l2-link .star-icon {
-    display: block;
-    opacity: 1;
-    background-image: url('Icons/Star-on.svg');
-}
-
-.l1-category:has(> .category-header:contains("Favourites")) .l2-link:hover .star-icon {
-    background-image: url('Icons/Star-on.svg');
+.l1-category:has(> .category-header:contains("Favourites")) .l2-link .star-icon,
+.l1-category:has(> .category-header:contains("Favourites")) .l3-link .star-icon {
+    display: none !important;
 }
 
 .favorites-placeholder {
