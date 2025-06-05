@@ -319,13 +319,13 @@ a.sidebar-item:hover,
 .l3-link:not(.starred):hover .star-icon {
     display: block;
     opacity: 1;
-    background-image: url('Icons/star-off.svg');
+    background-image: url('Icons/Star-off.svg');
 }
 
 /* Show hover state when hovering the star itself */
 .l2-link:not(.starred) .star-icon:hover,
 .l3-link:not(.starred) .star-icon:hover {
-    background-image: url('Icons/star-hover.svg');
+    background-image: url('Icons/Star-hover.svg');
 }
 
 /* Show star-on for starred items */
@@ -333,18 +333,18 @@ a.sidebar-item:hover,
 .l3-link.starred .star-icon {
     display: block;
     opacity: 1;
-    background-image: url('Icons/star-on.svg');
+    background-image: url('Icons/Star-on.svg');
 }
 
 /* Special handling for favorites section */
 .l1-category:has(> .category-header:contains("Favourites")) .l2-link .star-icon {
     display: block;
     opacity: 1;
-    background-image: url('Icons/star-on.svg');
+    background-image: url('Icons/Star-on.svg');
 }
 
 .l1-category:has(> .category-header:contains("Favourites")) .l2-link:hover .star-icon {
-    background-image: url('Icons/star-on.svg');
+    background-image: url('Icons/Star-on.svg');
 }
 
 .favorites-placeholder {
