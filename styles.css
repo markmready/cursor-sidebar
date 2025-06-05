@@ -279,18 +279,53 @@ a.sidebar-item:hover,
     background-color: #f5f5f5;
 }
 
+/* L2 and L3 link styles */
+.l2-link,
+.l3-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+}
+
 .l2-link {
-    padding-left: 40px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 20px 10px 40px;
     font-weight: 300;
 }
 
 .l3-link {
-    padding-left: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 20px 10px 20px;
     font-weight: 300;
+}
+
+/* Star icon styles */
+.star-icon {
+    width: 14px;
+    height: 14px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    position: absolute;
+    left: 20px; /* Aligns with L2 padding */
+}
+
+.l3-link .star-icon {
+    left: 0; /* Adjust for L3 links */
+}
+
+/* Show star on hover */
+.l2-link:hover .star-icon,
+.l3-link:hover .star-icon {
+    opacity: 1;
+}
+
+/* Maintain text alignment */
+.l2-link span,
+.l3-link span {
+    margin-left: 19px; /* Width of star (14px) + gap (5px) */
+}
+
+.l3-link span {
+    margin-left: 19px;
 }
 
 /* L2 category should align with L1 */
