@@ -11,7 +11,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Prevent body scroll */
+    overflow: hidden; /* Keep this to prevent body-level scrolling */
 }
 
 /* Masthead */
@@ -34,7 +34,8 @@ body {
     display: flex;
     flex: 1;
     height: calc(100vh - 56px); /* Set fixed height */
-    overflow: hidden; /* Prevent wrapper scroll */
+    overflow: hidden; /* This now only prevents wrapper-level scroll */
+    position: relative; /* Add this to ensure proper containment */
 }
 
 /* Sidebar Container */
@@ -503,6 +504,13 @@ a.sidebar-item:hover,
 .main-content {
     flex: 1;
     padding: 20px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    height: 100%; /* Fill the available height */
+}
+
+/* Add some min-height to ensure content is scrollable when viewport is small */
+.main-content > * {
+    min-height: 200vh; /* Temporary - adjust based on your actual content */
 }
 
 /* Adjust margin when sidebar is minimized */
