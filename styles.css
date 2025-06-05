@@ -337,9 +337,10 @@ a.sidebar-item:hover,
 }
 
 /* Special handling for favorites section */
-.l1-category:has(> .category-header:contains("Favourites")) .l2-link .star-icon,
-.l1-category:has(> .category-header:contains("Favourites")) .l3-link .star-icon {
+.l1-category:has(> .category-header:contains("Favourites")) .star-icon {
     display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
 .favorites-placeholder {
