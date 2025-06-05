@@ -345,6 +345,12 @@ document.addEventListener('DOMContentLoaded', () => {
             sidebar.classList.remove('minimized');
         }
 
+        // Always hide favorites category during search
+        const favoritesCategory = document.querySelector('.favorites-category');
+        if (favoritesCategory) {
+            favoritesCategory.style.display = searchTerm ? 'none' : 'block';
+        }
+
         if (!searchTerm) {
             // Reset everything if search is cleared
             document.querySelectorAll('.sidebar-item').forEach(item => {
@@ -356,12 +362,19 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.l1-category, .l2-category').forEach(category => {
                 category.classList.remove('active');
             });
+            // Update favorites visibility when search is cleared
+            updateFavoritesList();
             return;
         }
 
         // First find categories with matching children
         const categories = document.querySelectorAll('.l1-category, .l2-category');
         categories.forEach(category => {
+            // Skip the favorites category completely
+            if (category.classList.contains('favorites-category')) {
+                return;
+            }
+
             const links = category.querySelectorAll('a');
             const categoryHeader = category.querySelector('.category-header');
             const headerText = categoryHeader.textContent.toLowerCase();
@@ -421,4 +434,79 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+    // Function to update favorites list
+    function updateFavoritesList() {
+        const favoritesCategory = document.querySelector('.favorites-category');
+        if (!favoritesCategory) return;
+
+        const favoritesContent = favoritesCategory.querySelector('.category-content');
+        if (!favoritesContent) return;
+
+        // Clear existing favorites
+        favoritesContent.innerHTML = '';
+
+        // Get all starred items
+        const starredItems = document.querySelectorAll('.l2-link.starred, .l3-link.starred');
+        
+        // Hide/show the entire favorites category based on whether there are starred items
+        favoritesCategory.style.display = starredItems.length > 0 ? 'block' : 'none';
+        
+        // If no starred items, we can return early
+        if (starredItems.length === 0) return;
+
+        starredItems.forEach(item => {
+            // Create a new favorite item
+            const favoriteItem = document.createElement('a');
+            favoriteItem.href = item.href;
+            favoriteItem.className = 'sidebar-item l2-link';
+            
+            // Create star icon
+            const starIcon = document.createElement('span');
+            starIcon.className = 'star-icon';
+            
+            // Copy the text content
+            const textContent = item.textContent.trim();
+            
+            // Check if original item has an outlink icon
+            const hasOutlink = item.querySelector('.outlink-icon');
+            
+            // Construct the favorite item
+            favoriteItem.appendChild(starIcon);
+            favoriteItem.appendChild(document.createTextNode(textContent));
+            
+            if (hasOutlink) {
+                const outlinkIcon = document.createElement('img');
+                outlinkIcon.src = 'Icons/Outlink.svg';
+                outlinkIcon.alt = '';
+                outlinkIcon.className = 'outlink-icon';
+                favoriteItem.appendChild(outlinkIcon);
+            }
+            
+            // Add to favorites
+            favoritesContent.appendChild(favoriteItem);
+        });
+    }
+
+    // Handle star icon clicks
+    document.querySelectorAll('.star-icon').forEach(icon => {
+        icon.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const link = icon.closest('.l2-link, .l3-link');
+            if (!link) return;
+            
+            // Toggle starred state
+            link.classList.toggle('starred');
+            
+            // Update favorites list
+            updateFavoritesList();
+            
+            // Here you could also save the starred state to localStorage or send to a server
+        });
+    });
+
+    // Initialize favorites list
+    updateFavoritesList();
 }); 
