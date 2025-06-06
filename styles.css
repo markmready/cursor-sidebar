@@ -325,7 +325,7 @@ a.sidebar-item:hover,
 /* Show hover state when hovering the star itself */
 .l2-link:not(.starred) .star-icon:hover,
 .l3-link:not(.starred) .star-icon:hover {
-    background-image: url('Icons/star-hover.svg') !important;
+    background-image: url('Icons/Star-Hover.svg') !important;
 }
 
 /* Show star-on for starred items */
