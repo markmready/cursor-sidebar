@@ -589,4 +589,24 @@ a.sidebar-item:hover,
 /* Hide Favorites category by default */
 .l1-category:has(> .category-header:contains("Favourites")) {
     display: none;
+}
+
+.l1-category {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar Version Number */
+.sidebar-version {
+    padding: 12px 20px;
+    text-align: left;
+    color: #B9B9B9;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.sidebar-version span {
+    opacity: 1;
+    display: block;
+    padding-left: 0;
 } 
